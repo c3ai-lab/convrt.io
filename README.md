@@ -53,6 +53,10 @@ sudo chmod +x /usr/local/bin/docker-compose
 - After the setup, you can access the convrt application on instances-public-DNS:5000
 - As an AWS EC2 free tier instance only has 1GB of storage, it is recommended to run `docker image prune -a` before each restart to delete unused docker images that can take up a lot of storage space
 
+## Workflow
+
+After creating an account using your LinkedIn credentials and signing in you can use the refresh button on the top right to get your messages from LinkedIn via web scraping. When clicking the button the application will always crawl any new messages from LinkedIn as well as inserting the messages you sent via the convrt.io interface back into the LinkedIn messenger.
+
 ## Bugs
 
 When running the application in the cloud, the scraping sometimes fails, because LinkedIn does not instantly accept the login and sends a verification key to the current user. This is because the cloud instances is located in the US and all earlier logins were executed from our location, which is Germany. Unfortunately the code sometimes gets send a few minutes after the login "failed" and the scraping script exited, so that there is no way of getting the code and inserting in into the verification field. The same phenomenon occurs when using the application locally. Apparently, LinkedIn has implemented a mechanism that notices that the login data is not entered by a human user.
